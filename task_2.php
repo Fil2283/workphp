@@ -13,7 +13,7 @@ function staircase($n){
         for ($j = 1; $j <= $i; $j++) {
             echo "#";
         }
-        echo "<br>";// почемуто не работает PHP_EOL;
+        echo "<br>";// почемуто не работает PHP_EOL имено в visual studia cod;
     }
 }
 staircase($n);
