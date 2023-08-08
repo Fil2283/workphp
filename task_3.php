@@ -1,20 +1,21 @@
 <?php
-function Time($t)
-{
-    $PM = substr($t, -2) === "PM";
+function convertTimeTo24HourFormatWithSeconds($s) {
+    $isPM = substr($s, -2) === "PM";
 
-    $t = str_replace(["AM", "PM"], "", $t);
+    $s = str_replace(["AM", "PM"], "", $s);
 
-    list($h, $m, $s) = explode(":", $t);
+    list($hours, $minutes, $seconds) = explode(":", $s);
 
-    if ($PM && $h !== "12") {
-        $h = (int)$h + 12;
+    if ($isPM && $hours !== "12") {
+        $hours = (int)$hours + 12;
     }
-    if (!$PM && $h === "12") {
+    if (!$isPM && $hours === "12") {
         $hours = "00";
     }
-    return "$h:$m:$s";
+    return "$hours:$minutes:$seconds";
 }
-$t = "03:30:45 PM";
-$t = Time($t);
-echo $t; // Вывод: "15:30:45"
+
+$time12 = "03:30:45 PM";
+$time24 = convertTimeTo24HourFormatWithSeconds($time12);
+echo $time24;
+?>
