@@ -16,5 +16,6 @@ function staircase($n){
         echo "<br>";// почемуто не работает PHP_EOL имено в visual studia cod;
     }
 }
+
 staircase($n);
 ?>
